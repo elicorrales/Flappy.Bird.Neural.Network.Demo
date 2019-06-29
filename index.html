@@ -1,0 +1,69 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+   <link rel="stylesheet" href="./libraries/bootstrap.min.css">
+   <title>Flappy Birds Neural Network A.I. Game Demo</title>
+</head>
+<body>
+  <h1>Flappy Birds Neural Network A.I. Game Demo</h1>
+  <div class="container container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Parameters
+      </div>
+      <div class="panel-body">
+        Hidden Nodes: <span id="currNumHiddenNodes"></span>
+        <input id="numHiddenNodes" type="range" min="1" max="50" step="1" value="8" oninput="doChangeNumHiddenNodes(this)">
+
+        Birds: <span id="currNumBirds"></span>
+        <input id="numBirds" type="range" min="0" max="400" step="1" value="100" oninput="doChangeNumBirds(this)">
+
+        <div class="checkbox"> <label><input id="randomPipeWidth" type="checkbox">Random</label>
+          Pipe Width: <span id="currPipeWidth"></span>
+          <input id="pipeWidth" type="range" min="10" max="200" step="1" value="10">
+        </div>
+        
+        <div class="checkbox"> <label><input id="randomPipeSpace" type="checkbox">Random</label>
+          Pipe Space: <span id="currPipeSpace"></span>
+          <input id="pipeSpace" type="range" min="100" max="350" step="1" value="350">
+        </div>
+        
+        <div class="checkbox"> <label><input id="randomPipeSpace" type="checkbox">Override</label>
+          Learning Cycles: <span id="currLearningCycles"></span>
+          <input id="learningCycles" type="range" min="1" max="100" step="1" value="1">
+        </div>
+        
+        <button id="pauseOrRun" class="btn btn-info" onclick="doPauseOrRun(this)">Press To Continue</button>
+
+        <button class="btn btn-info" onclick="doResetBirdsBrains()">Reset Birds' Brains</button>
+
+        &nbsp; &nbsp; &nbsp;
+        <label><input id="useBirdVelocityAsInput" type="checkbox" checked>Use Bird's Velocity As Input</label>
+
+        <button class="btn btn-info pull-right" onclick="doSaveBestBirdBrain()">Save Best Bird Brain</button>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Game Board &nbsp; &nbsp; 
+        Birds Left: <span id="numBirdsLeft"></span> &nbsp; &nbsp; 
+        Highest Score: <span id="highestScore"></span> &nbsp; &nbsp;
+        Generations: <span id="generations">0</span> &nbsp; &nbsp;
+      </div>
+      <div class="panel-body">
+        <div id="canvasParent"></div>
+      </div>
+    </div>
+  </div>
+</body>
+  <script language="javascript" type="text/javascript" src="./libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="./libraries/p5.dom.min.js"></script>
+  <script language="javascript" type="text/javascript" src="./libraries/matrix.js"></script>
+  <script language="javascript" type="text/javascript" src="./libraries/nn.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <script language="javascript" type="text/javascript" src="bird.js"></script>
+  <script language="javascript" type="text/javascript" src="pipe.js"></script>
+  <script language="javascript" type="text/javascript" src="genetic.algo.js"></script>
+  <script language="javascript" type="text/javascript" src="learning.logic.js"></script>
+  <script language="javascript" type="text/javascript" src="index.html.event.handlers.js"></script>
+</html>
